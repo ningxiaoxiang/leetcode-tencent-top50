@@ -1,0 +1,43 @@
+class MinStack {
+public:
+    /** initialize your data structure here. */
+    MinStack() {
+        
+    }
+    
+    void push(int x) {
+        p.push(x);
+        if(q.empty()||x<=q.top()) q.push(x);
+    }
+    
+    void pop() {
+         
+        
+        if(p.top()==q.top()) q.pop();
+        p.pop();
+    }
+    
+    int top() {
+        return p.top();
+    }
+    
+    int getMin() {
+        return q.top();
+    }
+    
+    int min=INT_MAX;
+    stack<int> p,q;
+};
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * MinStack* obj = new MinStack();
+ * obj->push(x);
+ * obj->pop();
+ * int param_3 = obj->top();
+ * int param_4 = obj->getMin();
+ */
+ 
+ 备注：看了网上的方法才写出来，看了好几次才发现一开始的函数是构造函数。注意第10行要判断帮助栈是否为empty，第10行是小于等于，不是小于！！！第16行是最巧妙的一部
+ 
+ 问题：不将变量写入private中有什么影响吗？有更好的方法吗？
