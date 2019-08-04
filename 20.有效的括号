@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> stk;
+        for(auto i:s){
+            if(i=='('||i=='{'||i=='[')
+                stk.push(i);
+          else if(stk.empty()) return false;
+            else if(i==')'&&stk.top()!='(')return false;
+                 else if(i=='}'&&stk.top()!='{')return false;
+             else if(i==']'&&stk.top()!='[')return false;
+            else stk.pop();
+        }
+        if(stk.empty()) return true;
+        else return false;
+    }
+};
+
+感觉将所有的可能用if else写出来，不是个好方法
+注意：第14行要判断empty，否则这样{{}()[]也会被以为是true，就错了；14、15行可以合并写成 return stk.empty()；更简单
+
+提问：有没有更好的列举可能性的方法
