@@ -1,0 +1,10 @@
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        nums.sort();
+        return nums[-k];
+        
+python实现很简单
+直接return nums[-k]，不用return nums[len(nums)-k];
+
+这道题应该可以用堆实现，赶紧学！！！
+提问：无
