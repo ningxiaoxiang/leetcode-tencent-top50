@@ -18,7 +18,7 @@ public:
 
 
 官方解答上还有个峰谷法，复制如下：
-
+Java的的版本的
 class Solution {
     public int maxProfit(int[] prices) {
         int i = 0;
@@ -38,5 +38,27 @@ class Solution {
     }
 } 
 
-
+不过直接改成C ++是有问题的，我自己修改了如下，要考虑[]的输入
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        if(prices.empty()) return 0;
+        int i=0;
+        int gu=prices[0];
+        int feng=prices[0];
+        int ans=0;
+        while(i<prices.size()-1){
+            while(i<prices.size()-1&&prices[i]>=prices[i+1]) 
+                i++;
+                gu=prices[i];
+             while(i<prices.size()-1&&prices[i]<=prices[i+1]) 
+                i++;
+                feng=prices[i];
+            ans+=feng-gu;
+        }
+        return ans;
+    }
+};
+注意：中间的判断条件是price.size()-1，不是price.size(),否则你+1后不就超过了嘛，然后当i=prices.size()-1的时候，就在里面循环了，会出现gu和feng都等于0，还是挺秒的解法的，边界是尤其要注意的东西啊！！！！
+好好自己写一遍，尤其条件判断的深层韵味，真不一定能再次get到
 问题：无
