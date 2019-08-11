@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int p=0;
+        for(auto i:nums)
+            p=p^i;
+        
+        return p;
+    }
+};
+
+无问题
