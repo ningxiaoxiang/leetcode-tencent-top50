@@ -1,0 +1,24 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def __init__(self):
+        self.lit=[]
+    def  dfs(self, root):
+        if(root is None):
+            return 
+        self.dfs(root.left)
+        self.lit.append(root.val)
+        self.dfs(root.right)
+    
+    def kthSmallest(self, root: TreeNode, k: int) -> int:
+        self.dfs(root)
+        return self.lit[k-1]
+        
+     
+开始尝试用python写，真累啊，尤其类和对象，注意要写self，然后lit不要定义在全局变量，leetcode本身测试的原因会通不过，把它放在初始化的里面
+无问题
