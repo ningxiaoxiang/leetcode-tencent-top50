@@ -21,6 +21,6 @@ class Solution:
             return root
             
             
-            官方有两种解法，这是意思和第一种一样，但我参考了网上的写法https://blog.csdn.net/zhuixun_/article/details/80532575
+            官方有3种解法，这是意思和第一种一样，但我参考了网上的写法https://blog.csdn.net/zhuixun_/article/details/80532575
             
             无问题
