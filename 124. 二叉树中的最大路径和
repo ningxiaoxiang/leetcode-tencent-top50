@@ -1,0 +1,31 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def __init__(self):
+        self.ans=float('-inf')
+        
+        
+    def getMax(self,root):
+        if root==None:
+            return 0
+        left=max(0,self.getMax(root.left))
+        right=max(0,self.getMax(root.right))
+        self.ans=max(self.ans , root.val+left+right)
+        return  root.val+max(left,right)
+    
+    
+    def maxPathSum(self, root: TreeNode) -> int:
+        self.getMax(root)
+        return self.ans
+    
+    
+    
+    这题挺恶心的，参考了https://blog.csdn.net/qq_28327765/article/details/86490717，但因为是python所以需要改啊啊啊啊啊
+    那个使用left=max（0，。。。。）的方法，真的牛逼，几句话涵盖了4种情况
+    
+    无问题
