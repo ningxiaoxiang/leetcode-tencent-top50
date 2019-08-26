@@ -1,0 +1,19 @@
+class Solution:
+    def canWinNim(self, n: int) -> bool:
+        if n>>2<<2==n:
+            return False
+        else:
+            return True
+        
+        
+        上面是位运算
+        相当于除以4，再乘以四
+        
+        或者
+  class Solution:
+    def canWinNim(self, n: int) -> bool:
+            return n%4!=0
+            
+        无问题
+        
+        
