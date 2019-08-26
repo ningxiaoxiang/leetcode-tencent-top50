@@ -1,0 +1,38 @@
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.capacity=capacity
+       
+        self.dic={}
+        self.lit=[]
+
+    def get(self, key: int) -> int:
+        if key not in self.dic.keys():
+            return -1
+        else:
+            self.lit.remove(key)
+            self.lit.append(key)
+            
+            return self.dic[key]
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.dic:
+            self.dic[key]=value
+            self.lit.remove(key)
+            self.lit.append(key)
+        elif len(self.dic)==self.capacity:
+            self.dic[key]=value
+            del self.dic[self.lit[0]]
+            self.lit=self.lit[1:]
+            self.lit.append(key)
+        else:
+            self.lit.append(key)
+            self.dic[key]=value
+
+# Your LRUCache object will be instantiated and called as such:
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key,value)
+
+
+要求时间复杂度o（1），我搞不起来
